@@ -12,7 +12,9 @@ public class RoutingConfiguration {
 	public RouteLocator gatewayRouter(RouteLocatorBuilder builder) {
 		System.out.println("Creando el router");
 		return builder.routes()
-				.route("ruletas", p -> p.path("/app-service/**").uri("lb://RULETAS-SERVICE"))
+				.route("ruletasModule", 
+						p -> p.path("/ruletas-module/**")
+						.uri("lb://RULETAS-SERVICE"))
 				.build();
 	}
 	
